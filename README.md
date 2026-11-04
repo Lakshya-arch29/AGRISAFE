@@ -546,5 +546,4 @@ Request ← Exception Handler ← Domain Service
 - Flyway migrations for all schema changes
 - Proper indexes on lookup columns
 
-## License
-https://github.com/AshIndian-Coder/AGRISAFE/blob/8ee72d7208c73e7fdfbb88182b534f08200ac1d3/LICENSE
+
