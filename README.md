@@ -31,17 +31,6 @@ Agricultural supply chains pass through many hands, which leads to:
 - **Consumer verification**: scanning the product QR returns VERIFIED, NOT_VERIFIED, or RECALLED
 - **Traceability**: full lot-to-package-to-bundle lineage with append-only trace records
 
-## My contribution
-
-Database and frontend:
-
-- **Database**: MySQL schema managed with Flyway migrations
-- **Database**: strong unique constraints at DB level, UUIDs for external IDs, optimistic locking with `@Version`
-- **Database**: immutable, append-only audit and trace records, with indexes on lookup columns
-- **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS + Zustand
-- **Frontend**: role-specific dashboards for every user role
-- **Frontend**: PIN confirmation on write actions, GPS verification hook, QR scanning, and Thirdweb wallet connection
-- **Frontend**: dark mode, loading skeletons, and smooth animations
 
 ## Architecture
 
