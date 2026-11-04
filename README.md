@@ -2,6 +2,47 @@
 
 Blockchain-verified traceability platform for agricultural products. Every step from farm to consumer is recorded on-chain (Polygon Amoy) with Spring Boot backend and React frontend.
 
+## The problem
+
+Agricultural supply chains pass through many hands, which leads to:
+
+- Products moving from farm to consumer with **no single trusted record** of where they came from
+- Records kept separately by each party, so they can be **altered or lost**
+- **Unsafe or substandard products** that are hard to trace back to their source lot
+- **Recalls** that are slow because the affected lots cannot be identified quickly
+- Consumers having **no easy way to verify** a product
+
+## Research: impact on industry
+
+- Farmers, agents, manufacturers, distributors, and retailers cannot **prove the origin** of a product
+- Quality failures are hard to **pin to a lot, package, or handler**
+- Fraud, such as a QR code reused on another product, can go **unnoticed**
+- Regulators lack a **complete history** to investigate complaints and flags
+- Consumers cannot tell a **genuine, tested product** from a doubtful one
+
+## How AgriSafe solves it
+
+- **On-chain records**: every step from farm to consumer is recorded on Polygon Amoy
+- **Role-based dashboards**: farmer, collecting agent, nodal center, testing agent, supplier, manufacturer, distributor, retailer, government, and consumer
+- **QR + GPS + PIN**: each transfer is verified by a QR scan, location check, and 6-digit PIN
+- **Replay protection**: a QR scanned twice is rejected and a flag is created
+- **Testing**: failed test results quarantine the package and raise a flag
+- **Government oversight**: flags, investigations, inspections, and product recall
+- **Consumer verification**: scanning the product QR returns VERIFIED, NOT_VERIFIED, or RECALLED
+- **Traceability**: full lot-to-package-to-bundle lineage with append-only trace records
+
+## My contribution
+
+Database and frontend:
+
+- **Database**: MySQL schema managed with Flyway migrations
+- **Database**: strong unique constraints at DB level, UUIDs for external IDs, optimistic locking with `@Version`
+- **Database**: immutable, append-only audit and trace records, with indexes on lookup columns
+- **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS + Zustand
+- **Frontend**: role-specific dashboards for every user role
+- **Frontend**: PIN confirmation on write actions, GPS verification hook, QR scanning, and Thirdweb wallet connection
+- **Frontend**: dark mode, loading skeletons, and smooth animations
+
 ## Architecture
 
 ```
@@ -545,5 +586,3 @@ Request ← Exception Handler ← Domain Service
 - Immutable audit/trace records (append-only)
 - Flyway migrations for all schema changes
 - Proper indexes on lookup columns
-
-
